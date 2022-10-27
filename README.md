@@ -1,0 +1,1 @@
+This repo contains all the project practice codes in c, c++ and python
