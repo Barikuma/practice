@@ -27,3 +27,31 @@ def encrypt(message, key):
 
     encrypted_message = ''.join(map(str, encrypted_message))
     return encrypted_message
+
+def decrypt(message, key):
+    decrypted_message = []
+    for c in message:
+        if ((c in ascii_lowercase) == False and (c in ascii_uppercase) == False):
+            decrypted_message.append(c)
+            continue
+        
+        if (c in ascii_lowercase):
+            index = ascii_lowercase.index(c)
+            i = index - key
+            if (i >= 0):
+                decrypted_message.append(ascii_lowercase[i])
+            else:
+                i = i + 26
+                decrypted_message.append(ascii_lowercase[i])
+        
+        elif (c in ascii_uppercase):
+            index = ascii_uppercase.index(c)
+            i = index - key
+            if (i >= 0):
+                decrypted_message.append(ascii_uppercase[i])
+            else:
+                i = i + 26
+                decrypted_message.append(ascii_uppercase[i])
+
+    decrypted_message = ''.join(map(str, decrypted_message))
+    return decrypted_message
